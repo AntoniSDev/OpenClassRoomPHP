@@ -1,60 +1,96 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Mes cours PHP</title>
-    </head>
-    <body>
 
-        
-    <?php 
+<head>
+    <meta charset="utf-8" />
+    <title>Mes cours PHP</title>
+</head>
+
+<body>
+
+
+    <?php
+
+
+//Tableaux - Array
+
+// Premier utilisateur
+$userName1 = 'Mickaël Andrieu';
+$userEmail1 = 'mickael.andrieu@exemple.com';
+$userPassword1 = 'S3cr3t';
+$userAge1 = 34;
+
+// Deuxième utilisatrice
+$userName2 = 'Laurène Castor';
+$userEmail2 = 'laurene.castor@exemple.com';
+$userPassword2 = 'P4ssW0rD';
+$userAge2 = 28;
 
  
-        //Ecrire une variable PHP  ->  $nomDeLaVariable = saValeur;
-            $userAge = 41;
+//Tableau simple
+$user1 = ['Mickaël Andrieu', 'email', 'S3cr3t', 34];
 
-        //Valeur de type String, utilisée pour contenir du texte : $nomDeLaVariable = "ValeurTypeString"; ou avec des guillemet simples ''
-            $fullname = "Antoni Salomon";
-            $email = 'antoni.salomon1337@gmail.com';
+echo $user1[0]; // "Mickaël Andrieu"
+echo $user1[1]; // "email"
+echo $user1[3]; // 34
 
-        //Insérer des " ' dans sa string il faut utiliser un \ avant
-            $variable1 = "Mon \"nom\" est Antoni";
-            $variable2 = 'Je m\'appelle Antoni';
+//Tableau multidimensionnel
 
-        //Valeur de type int (nombre entier)
-            $Age = 17;
+$mickael = ['Mickaël Andrieu', 'mickael.andrieu@exemple.com', 'S3cr3t', 34];
+$mathieu = ['Mathieu Nebra', 'mathieu.nebra@exemple.com', 'devine', 33];
+$laurene = ['Laurène Castor', 'laurene.castor@exemple.com', 'P4ssw0rD', 28];
 
-        //Valeur de type float (nombre décimal)
-            $price = 57.3;
+$users = [$mickael, $mathieu, $laurene];
 
-        //Valeur de type bool (booléen true or false)
-            $isAuthor = true;
-            $isAdministrator = false;
+echo $users[1][1]; // "mathieu.nebra@exemple.com"
 
-        //Variable de type null
-            $noValue = NULL;
-        
-        //Echo ( ou print ) pour afficher la valeur d'une variable :  echo $nomdelaVariable
-            echo $price,"<br>";
-          
-        //Concaténer = assembler plusieurs valeurs différentes             
-            echo 'Bonjour ' . $fullname . ' et bienvenue sur le site ! vous avez ' . $userAge . ' ans et votre billet a couté ' . $price . ' €';
 
-        //$result prend la valeur 150 -> (15 + 5) * 5
-            $number = 10;
-            $result = ($number + 5) * $number; 
 
-        //Modulo 
-            $numberA = 10 % 5; // $numberA prend la valeur 0 car la division tombe juste
-            $numberA = 10 % 3; // $numberA prend la valeur 1 car il reste 1
+// While
+
+
+$lines = 1;
+
+while ($lines <= 100) {  //tant que on a pas 100 lines
+    echo 'Je ne dois pas regarder les mouches voler quand j\'apprends le PHP.<br />';
+    $lines++; // $lines = $lines + 1    incrémentation 
+}
+
+//avec un tableau
+
+$lines = 3; // nombre d'utilisateurs dans le tableau
+$counter = 0;
+
+while ($counter < $lines) {
+    echo $users[$counter][0] . ' ' . $users[$counter][1] . '<br />';
+    $counter++; // Ne surtout pas oublier la condition de sortie !
+}
+
+
+
+
+//For
+
+
+for ($lines = 0; $lines <= 2; $lines++)
+{
+    echo $users[$lines][0] . ' ' . $users[$lines][1] . '<br />';
+}
+
 
     ?>
 
+<!-- 
+« Est-ce que je sais d'avance combien de fois je veux que mes instructions soient répétées ? ».
+
+Si la réponse est oui, alors la boucle for  est tout indiquée.
+
+Sinon, alors il vaut mieux utiliser la boucle while .
+-->
 
 
 
-    
 
-    </body>
+</body>
 
 </html>
