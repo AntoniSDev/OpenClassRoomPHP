@@ -9,85 +9,79 @@
 <body>
 
 
-    <?php
+<?php
 
+//tableau numéroté
+//Exemple tableau simple, le 1er élément est à la position 0 -> cassoulet dans notre exemple
 
-//Tableaux - Array
+$recipes = ['Cassoulet', 'Couscous', 'Escalope Milanaise', 'Salade César',];
 
-// Premier utilisateur
-$userName1 = 'Mickaël Andrieu';
-$userEmail1 = 'mickael.andrieu@exemple.com';
-$userPassword1 = 'S3cr3t';
-$userAge1 = 34;
-
-// Deuxième utilisatrice
-$userName2 = 'Laurène Castor';
-$userEmail2 = 'laurene.castor@exemple.com';
-$userPassword2 = 'P4ssW0rD';
-$userAge2 = 28;
-
- 
-//Tableau simple
-$user1 = ['Mickaël Andrieu', 'email', 'S3cr3t', 34];
-
-echo $user1[0]; // "Mickaël Andrieu"
-echo $user1[1]; // "email"
-echo $user1[3]; // 34
-
-//Tableau multidimensionnel
-
-$mickael = ['Mickaël Andrieu', 'mickael.andrieu@exemple.com', 'S3cr3t', 34];
-$mathieu = ['Mathieu Nebra', 'mathieu.nebra@exemple.com', 'devine', 33];
-$laurene = ['Laurène Castor', 'laurene.castor@exemple.com', 'P4ssw0rD', 28];
-
-$users = [$mickael, $mathieu, $laurene];
-
-echo $users[1][1]; // "mathieu.nebra@exemple.com"
+// La fonction array permet aussi de créer un array
+$recipes = array('Cassoulet', 'Couscous', 'Escalope Milanaise');
 
 
 
-// While
 
 
-$lines = 1;
 
-while ($lines <= 100) {  //tant que on a pas 100 lines
-    echo 'Je ne dois pas regarder les mouches voler quand j\'apprends le PHP.<br />';
-    $lines++; // $lines = $lines + 1    incrémentation 
+echo $recipes[1]; // Cela affichera : Couscous
+
+
+
+//tableau associatif
+// Une bien meilleure façon de stocker une recette !
+$recipe2 = [
+    'title' => 'Cassoulet',
+    'recipe' => 'Etape 1 : des flageolets, Etape 2 : ...',
+    'author' => 'john.doe@exemple.com',
+    'enabled' => true,
+];
+
+//afficher un element en utilisant le 'nom' associé : 
+echo $recipe2['title'];
+
+
+//Les tableaux numérotés permettent de stocker une série d'éléments du même type, comme des prénoms. Chaque élément du tableau contiendra alors un prénom.
+//Les tableaux associatifs permettent de découper une donnée en plusieurs sous-éléments. Par exemple, une adresse peut être découpée en nom, prénom, nom de rue, ville…
+
+
+
+//Foreach
+// Déclaration du tableau des recettes
+$recipes3 = [
+    ['Cassoulet','[...]','mickael.andrieu@exemple.com',true,],
+    ['Couscous','[...]','mickael.andrieu@exemple.com',false,],
+];
+
+foreach ($recipes3 as $recipe) {
+    echo $recipe[0]; // Affichera Cassoulet, puis Couscous
 }
 
-//avec un tableau
+//array_key_exists pour vérifier si une clé existe dans le tableau.
 
-$lines = 3; // nombre d'utilisateurs dans le tableau
-$counter = 0;
+//in_array pour vérifier si une valeur existe dans le tableau.
 
-while ($counter < $lines) {
-    echo $users[$counter][0] . ' ' . $users[$counter][1] . '<br />';
-    $counter++; // Ne surtout pas oublier la condition de sortie !
-}
+//array_search pour récupérer la clé d'une valeur dans le tableau.
 
+// <?php array_key_exists('cle', $array); ?>
 
+<?php
+$recipe = [
+    'title' => 'Salade Romaine',
+    'recipe' => 'Etape 1 : Lavez la salade ; Etape 2 : euh ...',
+    'author' => 'laurene.castor@exemple.com',
+];
 
-
-//For
-
-
-for ($lines = 0; $lines <= 2; $lines++)
+if (array_key_exists('title', $recipe))
 {
-    echo $users[$lines][0] . ' ' . $users[$lines][1] . '<br />';
+    echo 'La clé "title" se trouve dans la recette !';
 }
 
-
-    ?>
-
-<!-- 
-« Est-ce que je sais d'avance combien de fois je veux que mes instructions soient répétées ? ».
-
-Si la réponse est oui, alors la boucle for  est tout indiquée.
-
-Sinon, alors il vaut mieux utiliser la boucle while .
--->
-
+if (array_key_exists('commentaires', $recipe))
+{
+    echo 'La clé "commentaires" se trouve dans la recette !';
+}
+?>
 
 
 
